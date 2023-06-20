@@ -8,6 +8,7 @@
   "author": "Segun Adebayo <sage@adebayosegun.com>",
   "license": "MIT",
   "scripts": {
+    "test:unit": "pnpm jest --coverage --config jest.config.js",
     "prepare": "husky install",
     "clean:emotion-types": "rimraf node_modules/@emotion/core/types",
     "postinstall": "pnpm clean:emotion-types",
