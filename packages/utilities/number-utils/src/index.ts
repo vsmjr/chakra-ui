@@ -78,7 +78,9 @@ export function roundValueToStep(value: number, from: number, step: number) {
  * @param max the maximum value
  */
 export function clampValue(value: number, min: number, max: number) {
-  if (value == null) return value
+  if (value == null) {
+    return value
+  }
 
   if (max < min) {
     console.warn("clamp: max cannot be less than min")

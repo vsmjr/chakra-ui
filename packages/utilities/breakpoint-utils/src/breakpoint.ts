@@ -1,11 +1,11 @@
 import { isObject } from "@chakra-ui/shared-utils"
 
-function getLastItem<T>(array: T[]): T | undefined {
+export function getLastItem<T>(array: T[]): T | undefined {
   const length = array == null ? 0 : array.length
   return length ? array[length - 1] : undefined
 }
 
-function analyzeCSSValue(value: number | string) {
+export function analyzeCSSValue(value: number | string) {
   const num = parseFloat(value.toString())
   const unit = value.toString().replace(String(num), "")
   return { unitless: !unit, value: num, unit }
@@ -23,7 +23,7 @@ const sortByBreakpointValue = (a: any[], b: any[]) =>
 const sortBps = (breakpoints: Record<string, any>): Record<string, any> =>
   Object.fromEntries(Object.entries(breakpoints).sort(sortByBreakpointValue))
 
-function normalize(breakpoints: Record<string, any>) {
+export function normalize(breakpoints: Record<string, any>) {
   const sorted = sortBps(breakpoints)
   return Object.assign(Object.values(sorted), sorted) as string[]
 }
