@@ -23,7 +23,7 @@ const sortByBreakpointValue = (a: any[], b: any[]) =>
 const sortBps = (breakpoints: Record<string, any>): Record<string, any> =>
   Object.fromEntries(Object.entries(breakpoints).sort(sortByBreakpointValue))
 
-export function normalize(breakpoints: Record<string, any>) {
+function normalize(breakpoints: Record<string, any>) {
   const sorted = sortBps(breakpoints)
   return Object.assign(Object.values(sorted), sorted) as string[]
 }
