@@ -193,4 +193,14 @@ describe("Number utils tests", () => {
     expect(clampValue(null, 1, 10)).toBe(null)
     expect(clampValue(undefined, 0, 10)).toBeUndefined()
   })
+
+  it("should print a warning when the min is higher then max", () => {
+    const consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation()
+    clampValue(5, 10, 0)
+    expect(consoleWarnSpy).toHaveBeenCalledTimes(1)
+    expect(consoleWarnSpy).toHaveBeenCalledWith(
+      "clamp: max cannot be less than min",
+    )
+    consoleWarnSpy.mockRestore()
+  })
 })
